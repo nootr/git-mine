@@ -1,0 +1,17 @@
+[package]
+name = "git-mine"
+version = "0.1.1"
+edition = "2021"
+description = "Mine your favorite git commit hashes"
+license = "MIT"
+authors = ["Joris Hartog"]
+
+[dependencies]
+sha1 = "0.10"
+rayon = "1.8"
+tempfile = "3.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
