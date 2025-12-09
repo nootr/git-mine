@@ -38,7 +38,7 @@ fn calculate_commit_hash(
     if !parent.is_empty() {
         writeln!(commit_content, "parent {}", parent).unwrap();
     }
-    write!(commit_content, "author {}\ncommitter {}\n\n{}\n\n\nnonce: {}\n",
+    write!(commit_content, "author {}\ncommitter {}\n\n{}\n\nX-Nonce: {}\n",
            author, committer, message, nonce).unwrap();
 
     // Calculate SHA-1 with git header
@@ -155,7 +155,7 @@ fn amend_commit_with_nonce(
     author_date: &str,
     committer_date: &str
 ) -> Result<(), String> {
-    let full_message = format!("{}\n\n\nnonce: {}\n", original_message, nonce);
+    let full_message = format!("{}\n\nX-Nonce: {}\n", original_message, nonce);
 
     // Use secure temp file handling
     let mut temp_file = NamedTempFile::new()

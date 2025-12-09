@@ -1,6 +1,6 @@
 [package]
 name = "git-mine"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Mine your favorite git commit hashes"
 license = "MIT"
